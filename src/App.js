@@ -11,11 +11,11 @@ function App() {
      setFormDataList((prevDataList) => [...prevDataList, data])
   }
 
-  
+
   return (
     <div className="App">
       <div className='finzome'>
-          <h1>FinZome</h1>
+          <h1>Finzome Technologies</h1>
       </div>
       <Form onFormSubmit={onFormSubmit}/>
       <Table formDataList={formDataList} setFormDataList={setFormDataList}/>
