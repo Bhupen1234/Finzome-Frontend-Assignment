@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import style from "./Table.module.css";
 import EditModal from "../EditModal/EditModal";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
+
 const Table = ({ formDataList ,setFormDataList}) => {
   const [open, setOpen] = useState(false);
 

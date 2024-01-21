@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 
-const EditModal = ({open,setOpen,id, rowData,setFormDataList,handleSaveEditedRow}) => {
+const EditModal = ({open,setOpen,id, rowData,handleSaveEditedRow}) => {
     const [editedData,setEditedData] = useState(rowData);
 
 
@@ -37,6 +37,14 @@ const EditModal = ({open,setOpen,id, rowData,setFormDataList,handleSaveEditedRow
 
   const onCloseModal = () => setOpen(false);
 
+  function getCurrentDate() {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0'); // Adding 1 because months are zero-based
+    const day = String(today.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  }
+
   return (
     <div>
      <Modal open={open} onClose={onCloseModal} center>
@@ -66,10 +74,12 @@ const EditModal = ({open,setOpen,id, rowData,setFormDataList,handleSaveEditedRow
         <label>
           Contact :
           <input
-            type="number"
+            type="tel"
             name="contact"
             value={editedData.contact}
             onChange={handleInputChange}
+            pattern="[0-9]{10}"
+            title="Please enter a 10-digit contact number"
             required
           />
         </label>
@@ -161,6 +171,7 @@ const EditModal = ({open,setOpen,id, rowData,setFormDataList,handleSaveEditedRow
             name="dob"
             value={editedData.dob}
             onChange={handleInputChange}
+            max={getCurrentDate()}
             required
           />
         </label>

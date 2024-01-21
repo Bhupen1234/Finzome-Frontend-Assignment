@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import style from "./Form.module.css";
 const Form = ({ onFormSubmit }) => {
   const [formData, setFormData] = useState({
@@ -49,6 +49,14 @@ const Form = ({ onFormSubmit }) => {
     };
     
 
+    function getCurrentDate() {
+      const today = new Date();
+      const year = today.getFullYear();
+      const month = String(today.getMonth() + 1).padStart(2, '0'); // Adding 1 because months are zero-based
+      const day = String(today.getDate()).padStart(2, '0');
+      return `${year}-${month}-${day}`;
+    }
+
   return (
     <div className={style.formContainer}>
       <form onSubmit={handleSubmit} className={style.form}>
@@ -77,10 +85,12 @@ const Form = ({ onFormSubmit }) => {
         <label>
           Contact :
           <input
-            type="number"
+            type="tel"
             name="contact"
             value={formData.contact}
             onChange={handleInputChange}
+            pattern="[0-9]{10}"
+            title="Please enter a 10-digit contact number"
             required
           />
         </label>
@@ -170,6 +180,7 @@ const Form = ({ onFormSubmit }) => {
             name="dob"
             value={formData.dob}
             onChange={handleInputChange}
+            max={getCurrentDate()}
             required
           />
         </label>

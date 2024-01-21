@@ -28,11 +28,16 @@
     appearance: none;
     border: 2px solid #007bff;
     border-radius: 4px;
+  
     width: 18px;
     height: 18px;
     display: inline-block;
     vertical-align: middle;
     cursor: pointer;
+  }
+
+  input[type="checkbox"] > label {
+    padding: 10px;
   }
   
   input[type="checkbox"]:checked {
@@ -82,8 +87,8 @@
   }
 
 
-  @media only screen and (max-width: 500px) {
+  /* @media only screen and (max-width: 500px) {
     .formContainer{
-        width: 100vw;
+        width: 100%;
     }
-  }
+  } */

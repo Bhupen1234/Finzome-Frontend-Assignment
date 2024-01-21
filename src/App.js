@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 import Form from './Components/Form/Form';
 import Table from './Components/Table/Table';
@@ -11,11 +11,12 @@ function App() {
      setFormDataList((prevDataList) => [...prevDataList, data])
   }
 
-
- 
-
+  
   return (
     <div className="App">
+      <div className='finzome'>
+          <h1>FinZome</h1>
+      </div>
       <Form onFormSubmit={onFormSubmit}/>
       <Table formDataList={formDataList} setFormDataList={setFormDataList}/>
     </div>
